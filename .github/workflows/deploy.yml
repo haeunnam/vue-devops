@@ -30,13 +30,14 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      # Runs a single command using the runners shell
+      - name: Test unit
+        run: yarn test:unit
+
       - name: Build page
         run: yarn build
         env:
           NODE_ENV: production
 
-      # Runs a set of commands using the runners shell
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
